@@ -140,21 +140,32 @@ class vec {
 	}
 	normalize() {
 		let len = this.length;
+		if (len === 0) return new vec(this);
+		return new vec(this.x / len, this.y / len);
+	}
+	normalize2() {
+		let len = this.length;
 		if (len === 0) return this;
 		this.x /= len;
 		this.y /= len;
 		return this;
 	}
-	normalized() {
-		let len = this.length;
-		if (len === 0) return new vec(this);
-		return new vec(this.x / len, this.y / len);
-	}
 	normal() {
 		return new vec(this.y, -this.x);
 	}
+	normal2() {
+		let y = this.y;
+		this.x = y;
+		this.y = -this.x;
+		return this;
+	}
 	inverse() {
 		return new vec(-this.x, -this.y);
+	}
+	inverse2() {
+		this.x *= -1;
+		this.y *= -1;
+		return this;
 	}
 	floor() {
 		return new vec(Math.floor(this.x), Math.floor(this.y));
