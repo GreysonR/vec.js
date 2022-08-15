@@ -129,6 +129,11 @@ class vec {
 	abs() {
 		return new vec(Math.abs(this.x), Math.abs(this.y));
 	}
+	abs2() {
+		this.x = Math.abs(this.x);
+		this.y = Math.abs(this.y);
+		return this;
+	}
 	rotate(angle) {
 		return new vec(Math.cos(angle) * this.x - Math.sin(angle) * this.y, Math.sin(angle) * this.x + Math.cos(angle) * this.y);
 	}
