@@ -126,6 +126,9 @@ class vec {
 	get area() {
 		return this.x * this.y;
 	}
+	manhattan(vec2) {
+		return Math.abs(vec2.x - this.x) + Math.abs(vec2.y - this.y);
+	}
 	abs() {
 		return new vec(Math.abs(this.x), Math.abs(this.y));
 	}
