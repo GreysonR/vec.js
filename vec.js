@@ -194,6 +194,14 @@ class vec {
 		this.y = Math.ceil(this.y);
 		return this;
 	}
+	round() {
+		return new vec(Math.round(this.x), Math.round(this.y));
+	}
+	round2() {
+		this.x = Math.round(this.x);
+		this.y = Math.round(this.y);
+		return this;
+	}
 	clamp(min, max) {
 		return new vec(Math.max(min.x, Math.min(max.x, this.x)), Math.max(min.y, Math.min(max.y, this.y)));
 	}
