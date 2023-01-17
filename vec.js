@@ -202,6 +202,22 @@ class vec {
 		this.y = Math.round(this.y);
 		return this;
 	}
+	min(vec2) {
+		return new vec(Math.min(vec2.x, this.x), Math.min(vec2.y, this.y));
+	}
+	min2(vec2) {
+		this.x = Math.min(this.x, vec2.x);
+		this.y = Math.min(this.y, vec2.y);
+		return this;
+	}
+	max(vec2) {
+		return new vec(Math.max(vec2.x, this.x), Math.max(vec2.y, this.y));
+	}
+	max2(vec2) {
+		this.x = Math.max(this.x, vec2.x);
+		this.y = Math.max(this.y, vec2.y);
+		return this;
+	}
 	clamp(min, max) {
 		return new vec(Math.max(min.x, Math.min(max.x, this.x)), Math.max(min.y, Math.min(max.y, this.y)));
 	}
