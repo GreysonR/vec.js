@@ -114,6 +114,14 @@ class vec {
 			return this;
 		}
 	}
+	sign() {
+		return new vec(Math.sign(this.x), Math.sign(this.y));
+	}
+	sign2() {
+		this.x = Math.sign(this.x);
+		this.y = Math.sign(this.y);
+		return this;
+	}
 	mod(vec2) {
 		if (typeof vec2 === "number")
 			return new vec(this.x % vec2, this.y % vec2);
