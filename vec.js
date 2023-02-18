@@ -271,4 +271,7 @@ class vec {
 	toObj() {
 		return { x: this.x, y: this.y };
 	}
+	isNaN() {
+		return isNaN(this.x) || isNaN(this.y);
+	}
 }
