@@ -151,6 +151,13 @@ class vec {
 	get length() {
 		return Math.sqrt(this.x ** 2 + this.y ** 2);
 	}
+	set length(len) {
+		let scale = len / this.length;
+		this.x *= scale;
+		this.y *= scale;
+
+		return this;
+	}
 	get angle() {
 		return Math.atan2(this.y, this.x);
 	}
