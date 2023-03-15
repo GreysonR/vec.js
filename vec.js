@@ -1,5 +1,5 @@
 /*
-	vec.js v1.1 by Greyson Rockwell 
+	vec.js v1.2 by Greyson Rockwell 
 */
 class vec {
 	constructor(x, y) {
