@@ -196,21 +196,13 @@ class vec {
 		this.y /= len;
 		return this;
 	}
-	normal() {
+	normal() { // left hand normal
 		return new vec(this.y, -this.x);
 	}
-	normal2() {
+	normal2() { // left hand normal
 		let y = this.y;
 		this.y = -this.x;
 		this.x = y;
-		return this;
-	}
-	inverse() {
-		return new vec(-this.x, -this.y);
-	}
-	inverse2() {
-		this.x *= -1;
-		this.y *= -1;
 		return this;
 	}
 	floor() {
