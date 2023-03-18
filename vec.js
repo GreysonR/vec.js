@@ -194,7 +194,7 @@ class vec {
 		return this;
 	}
 	project(vec2, bound = false) { // projects this vector onto the other one
-		let d1 = this.dot(vector);
+		let d1 = this.dot(vec2);
 		let d2 = vec2.x * vec2.x + vec2.y * vec2.y;
 
 		if (bound) {
@@ -204,7 +204,7 @@ class vec {
 		return new vec(d1 * vec2.x / d2, d1 * vec2.y / d2);
 	}
 	project2(vec2, bound = false) { // projects this vector onto the other one
-		let d1 = this.dot(vector);
+		let d1 = this.dot(vec2);
 		let d2 = vec2.x * vec2.x + vec2.y * vec2.y;
 
 		if (bound) {
