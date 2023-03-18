@@ -1,5 +1,5 @@
 /*
-	vec.js v1.2 by Greyson Rockwell 
+	vec.js v1.3 by Greyson Rockwell 
 */
 class vec {
 	constructor(x, y) {
@@ -149,7 +149,7 @@ class vec {
 		return new vec(this.x * weight + vec2.x * weight2, this.y * weight + vec2.y * weight2);
 	}
 	get length() {
-		return Math.sqrt(this.x ** 2 + this.y ** 2);
+		return Math.sqrt(this.x * this.x + this.y * this.y);
 	}
 	set length(len) {
 		let scale = len / this.length;
@@ -175,6 +175,15 @@ class vec {
 		this.y = Math.abs(this.y);
 		return this;
 	}
+	reflect(vec2) { // vec2 must be normalized
+		// Vect2 = Vect1 - 2 * WallN * (WallN DOT Vect1)
+		let v2 = vec2.normal();
+		return this.sub(v2.mult(v2.dot(this) * 2));
+	}
+	reflect2(vec2) { // vec2 must be normalized
+		let v2 = vec2.normal();
+		return this.sub2(v2.mult(v2.dot(this) * 2));
+	}
 	rotate(angle) {
 		return new vec(Math.cos(angle) * this.x - Math.sin(angle) * this.y, Math.sin(angle) * this.x + Math.cos(angle) * this.y);
 	}
@@ -182,6 +191,29 @@ class vec {
 		let x = Math.cos(angle) * this.x - Math.sin(angle) * this.y;
 		this.y = Math.sin(angle) * this.x + Math.cos(angle) * this.y;
 		this.x = x;
+		return this;
+	}
+	project(vec2, bound = false) { // projects this vector onto the other one
+		let d1 = this.dot(vector);
+		let d2 = vec2.x * vec2.x + vec2.y * vec2.y;
+
+		if (bound) {
+			d1 = Math.max(0, Math.min(d2, d1));
+		}
+
+		return new vec(d1 * vec2.x / d2, d1 * vec2.y / d2);
+	}
+	project2(vec2, bound = false) { // projects this vector onto the other one
+		let d1 = this.dot(vector);
+		let d2 = vec2.x * vec2.x + vec2.y * vec2.y;
+
+		if (bound) {
+			d1 = Math.max(0, Math.min(d2, d1));
+		}
+
+		this.x = d1 * vec2.x / d2;
+		this.y = d1 * vec2.y / d2;
+
 		return this;
 	}
 	normalize() {
