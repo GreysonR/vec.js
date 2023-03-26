@@ -4,8 +4,14 @@
 class vec {
 	constructor(x, y) {
 		if (typeof x === "object") {
-			this.x = x.x;
-			this.y = x.y;
+			if (Array.isArray(x)) {
+				this.x = x[0];
+				this.y = x[1];
+			}
+			else {
+				this.x = x.x;
+				this.y = x.y;
+			}
 		}
 		else {
 			this.x = x;
