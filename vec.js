@@ -305,7 +305,7 @@ class vec {
 	toStringInt() {
 		return `{ x: ${ Math.round(this.x) }, y: ${ Math.round(this.y) } }`;
 	}
-	toObj() {
+	toObject() {
 		return { x: this.x, y: this.y };
 	}
 	isNaN() {
