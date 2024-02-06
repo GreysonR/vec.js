@@ -1,6 +1,3 @@
-/*
-	vec.js v1.3 by Greyson Rockwell 
-*/
 class vec {
 	constructor(x, y) {
 		if (typeof x === "object") {
@@ -12,6 +9,10 @@ class vec {
 				this.x = x.x;
 				this.y = x.y;
 			}
+		}
+		else if (typeof x === "number" && y === undefined) {
+			this.x = Math.cos(x);
+			this.y = Math.sin(x);
 		}
 		else {
 			this.x = x;
