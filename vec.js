@@ -588,4 +588,8 @@ class vec {
 		return isNaN(this.x) || isNaN(this.y);
 	}
 }
-module.exports = vec;
+
+try {
+	module.exports = vec;
+}
+catch (err) { /* Not loaded in a module */ }
